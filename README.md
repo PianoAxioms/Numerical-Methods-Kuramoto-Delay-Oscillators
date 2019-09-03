@@ -28,15 +28,14 @@ Each Jupyter Notebook file contains the exact script that was used to generate e
 
 The script for generating Figure 2 can be found in the notebook file ```eig_script.ipynb```. The script utilizes the data set \data\Fig2_dataset. 
 
-
 ## Figure 3-6 (generating arrays)
 
 Computation of the solution arrays is done in the notebook file ```comp_script.ipynb```. All relevant arrays are exported as .gz files.
 
 ## Figure 3, 5 plots
 
-These figures use a single solution instance for each plot, and are done in the notebook file ```fig_script_single.ipynb```. Edit the 'dataset_name' to the folder containing the relevant arrays.
+These figures use a single solution instance for each plot, and are done in the notebook file ```fig_script_single.ipynb```. Edit the 'dataset_name' to the folder containing the relevant arrays. The folders containing the arrays used to generate the figures are found in \data\Fig3_dataset and \data\Fig5_dataset.
 
 ## Figure 4, 6 plots
 
-These figures use a many solution instances with varying parameter values for each plot, and are done in the notebook file ```fig_script_multiple.ipynb```. Edit the 'dataset_name' to the folder containing the relevant arrays.
+These figures use a many solution instances with varying parameter values for each plot, and are done in the notebook file ```fig_script_multiple.ipynb```. Edit the 'dataset_name' to the folder containing the relevant arrays. The folders containing the arrays used to generate the figures are found in \data\Fig4_dataset and \data\Fig6_dataset.
