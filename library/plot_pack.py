@@ -79,6 +79,170 @@ def heatmap_positions():
     return bbox_list
 
 
+def basic_template(ax, tick='small'):
+    '''
+    Loads the ax with basic plot options.
+    '''
+    ax.set_title('')
+    ax.set_xlabel('')
+    ax.set_ylabel('')
+   
+    if tick == 'small':
+        ax.tick_params('x', **plot_options('tick', 'small'))
+        ax.tick_params('y', **plot_options('tick', 'small'))
+    
+    else:
+        ax.tick_params('x', **plot_options('tick', 'medium'))
+        ax.tick_params('y', **plot_options('tick', 'medium'))
+
+
+
+def centered_phases_template(ax):
+    '''
+    The template for centered phases plot.
+    '''
+    
+    # Basic options
+    basic_template(ax, tick='medium')
+    
+    # Axes
+    ax.set_yticks(np.array([-pi/2, 0, pi/2]))
+    ax.set_yticklabels((r'$-\pi/2$', r'$0$', r'$\pi/2$'))
+    
+    ax.set_ylim(bottom=-pi/2, top=pi/2)
+    
+
+def phase_diffs_template(ax):
+    '''
+    The template for the phase difference histogram plot.
+    '''
+    
+    basic_template(ax, tick='medium')
+    
+    # Axes
+    ax.set_xticks(np.array([-pi, -pi/2, 0, pi/2, pi]))
+    ax.set_xticklabels((r'$-\pi$', r'$-\pi/2$', r'$0$', r'$\pi/2$', r'$\pi$'))
+    ax.set_xlim(left=-pi, right=pi)
+    
+    
+    
+# PLOT OPTIONS
+def plot_options(attr, option, color='None'):
+    '''
+    Returns a dictionary of dictionary options for the following attr, with all options:
+    - title: 'default', 'large', 'small', 'tiny'
+    - label: 'default', 'large', 'small', 'tiny'
+    - tick: 'default', 'small', 'tiny'
+    - line: 'dashed', 'dotted, 'default', 'small'
+    - marker: 'default', 'small', 'tiny',
+            : 'bullet', 'triangle', 'square'
+    
+    The basic color options are: 'black', 'blue', red', 'green'
+    '''
+    
+    d = {}
+    if attr == 'title' or attr == 'label':
+        
+        if attr == 'title':
+            d['verticalalignment'] = 'baseline'
+        
+        if option == 'default':
+            d['fontsize'] = 12
+        
+        elif option == 'large': 
+            d['fontsize'] = 16
+        
+        elif option == 'medium':
+            d['fontsize'] = 14
+            
+        elif option == 'small':
+            d['fontsize'] = 10
+        
+        elif option == 'tiny':
+            d['fontsize'] = 8
+        
+    
+    elif attr == 'tick':
+        d['which'] = 'major'
+        
+        if option == 'default':
+            d['labelsize'] = 10
+        
+        elif option == 'small':
+            d['labelsize'] = 8
+        
+        elif option == 'tiny':
+            d['labelsize'] = 6
+        
+        if color != 'None':
+            d['labelcolor'] = color
+    
+    
+    elif attr == 'line':
+        
+        if option == 'dashed':
+            d['linestyle'] = 'dashed'
+            d['linewidth'] = 0.8
+        
+        elif option == 'dotted':
+            d['linestyle'] = 'dotted'
+            d['linewidth'] = 0.5
+            
+        elif option == 'default':
+            d['linestyle'] = 'solid'
+            d['linewidth'] = 1.5
+        
+        elif option == 'medium':
+            d['linestyle'] = 'solid'
+            d['linewidth'] = 1.0
+            
+        elif option == 'small':
+            d['linestyle'] = 'solid'
+            d['linewidth'] = 0.5
+    
+    
+    elif attr == 'marker':
+        
+        d['linestyle'] = 'None'
+        
+        # Break option into size_type:
+        if '_' not in option:
+            size = 'default'
+            mark_type = option
+        
+        else:
+            size, mark_type = option.split('_')
+        
+        # Options
+        if size == 'big':
+            d['markersize'] = 6
+        
+        elif size == 'default':
+            d['markersize'] = 4
+        
+        elif size == 'small':
+            d['markersize'] = 2
+        
+        elif size == 'tiny':
+            d['markersize'] = 1
+        
+        if mark_type == 'bullet':
+            d['marker'] = 'o'
+        
+        elif mark_type == 'triangle':
+            d['marker'] = '^'
+        
+        elif mark_type == 'square':
+            d['marker'] = 's'
+            
+         
+    # Color
+    if color != 'None':
+        d['color'] = color
+    
+    return d
+
+
 if __name__ == '__main__':
     pass
 

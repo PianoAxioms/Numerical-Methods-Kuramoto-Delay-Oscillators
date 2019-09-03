@@ -1,0 +1,24 @@
+N = 200
+omega0 = 1.0
+g = 1.5
+tspan = 0, 60
+step_size = 0.01
+hist_type = half_unity_linear
+
+A_sym = False
+inj = 0.0
+
+is_inj = False
+inj_time = 15
+inj_mid = 0.9
+
+Tau_dist = uniform
+Lambda = 0, 0.02
+Tau_sym = False
+gain = 40.0
+
+Omega = 0.9852221459635426
+Omega_s = 0.9852807804736949
+
+Tau_steps = 100
+Tau_upper = 10.0
