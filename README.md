@@ -25,3 +25,18 @@ Personal modules in the Libraries folder contains all relevant functions that pr
 Each Jupyter Notebook file contains the exact script that was used to generate each plot in the manuscript. Cells in the scripts are able to generate and export the array files used, which are stored in the 'data' folder. Other cells in the scripts import and process the array files to plot the relevant graphs. We provide a quick guide in how to reproduce each figure:
 
 ## Figure 2
+
+The script for generating Figure 2 can be found in the notebook file ```eig_script.ipynb```. The script utilizes the data set \data\Fig2_dataset. 
+
+
+## Figure 3-6 (generating arrays)
+
+Computation of the solution arrays is done in the notebook file ```comp_script.ipynb```. All relevant arrays are exported as .gz files.
+
+## Figure 3, 5 plots
+
+These figures use a single solution instance for each plot, and are done in the notebook file ```fig_script_single.ipynb```. Edit the 'dataset_name' to the folder containing the relevant arrays.
+
+## Figure 4, 6 plots
+
+These figures use a many solution instances with varying parameter values for each plot, and are done in the notebook file ```fig_script_multiple.ipynb```. Edit the 'dataset_name' to the folder containing the relevant arrays.
